@@ -1,0 +1,6 @@
+@article{hendrycks2021measuring,
+  title={Measuring Mathematical Problem Solving With the MATH Dataset},
+  author={Hendrycks, Dan and Burns, Collin and Kadavath, Saurav and Arora, Akul and Basart, Steven and Tang, Eric and Song, Dawn and Steinhardt, Jacob},
+  journal={arXiv preprint arXiv:2103.03874},
+  year={2021}
+}
