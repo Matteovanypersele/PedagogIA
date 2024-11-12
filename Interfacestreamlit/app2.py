@@ -23,8 +23,7 @@ def download_from_s3(bucket_name, s3_path, local_path):
     aws_session_token=st.secrets["AWS_SESSION_TOKEN"],
      config=Config(
         signature_version="s3v4",  # Forcer la signature Version 4
-        region_name="us-east-1",   # Ajouter la région
-        s3_addressing_style="path" # Utiliser le style `path` pour MinIO
+        region_name="us-east-1" # Utiliser le style `path` pour MinIO
     )
 )
     # Lister et télécharger les fichiers
