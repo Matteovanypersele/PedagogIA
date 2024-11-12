@@ -5,3 +5,4 @@ boto3
 datasets
 huggingface_hub
 torch
+s3fs
