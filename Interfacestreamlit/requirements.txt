@@ -1,0 +1,6 @@
+transformers[torch]
+sentencepiece
+protobuf
+boto3
+datasets
+huggingface_hub
