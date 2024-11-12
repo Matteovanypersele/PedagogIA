@@ -2,33 +2,7 @@ import os
 import subprocess
 import sys
 
-# Fonction pour installer les packages nécessaires
-def install(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
-# Installation des bibliothèques si nécessaires
-try:
-    import streamlit as st
-except ImportError:
-    install("streamlit")
-
-try:
-    import transformers
-except ImportError:
-    install("transformers")
-try:
-    import datasets
-except ImportError:
-    install("datasets")
-try:
-    import streamlit as st
-except ImportError:
-    install("transformers[torch]")
-
-try:
-    import boto3
-except ImportError:
-    install("boto3")
 
 import streamlit as st
 import transformers
