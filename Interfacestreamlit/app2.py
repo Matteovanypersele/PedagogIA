@@ -16,7 +16,7 @@ def download_from_s3(bucket_name, s3_path, local_path):
     aws_access_key_id=st.secrets["AWS_ACCESS_KEY_ID"],
     aws_secret_access_key=st.secrets["AWS_SECRET_ACCESS_KEY"],
     aws_session_token=st.secrets["AWS_SESSION_TOKEN"],
-    config=Config(signature_version="s3v4", s3_addressing_style="path")  # Forcer uniquement la signature v4
+    config=Config(signature_version="s3v4")  # Forcer uniquement la signature v4
 )
     # Lister et télécharger les fichiers
     objects = s3.list_objects_v2(Bucket=bucket_name, Prefix=s3_path)
