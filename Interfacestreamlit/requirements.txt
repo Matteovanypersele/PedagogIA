@@ -4,3 +4,4 @@ protobuf
 boto3
 datasets
 huggingface_hub
+torch
