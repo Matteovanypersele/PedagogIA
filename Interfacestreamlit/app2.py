@@ -1,17 +1,18 @@
 import os
-import subprocess
-import sys
-
-
-
 import streamlit as st
-import transformers
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 import boto3
 
-# Crée une fonction pour télécharger le modèle depuis S3
+# Fonction pour télécharger le modèle depuis S3
 def download_from_s3(bucket_name, s3_path, local_path):
-    s3 = boto3.client('s3')
+    # Initialiser le client S3 avec l'endpoint personnalisé et les identifiants
+    s3 = boto3.client(
+        "s3",
+        endpoint_url=st.secrets["ENDPOINT_URL"],
+        aws_access_key_id=st.secrets["AWS_ACCESS_KEY_ID"],
+        aws_secret_access_key=st.secrets["AWS_SECRET_ACCESS_KEY"],
+        aws_session_token=st.secrets["AWS_SESSION_TOKEN"]
+    )
     objects = s3.list_objects_v2(Bucket=bucket_name, Prefix=s3_path)
     for obj in objects.get('Contents', []):
         file_key = obj['Key']
@@ -61,3 +62,4 @@ if st.button("Obtenir la réponse"):
         st.write("Réponse : ", answer)
     else:
         st.warning("Veuillez poser une question.")
+
